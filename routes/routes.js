@@ -5,7 +5,7 @@ const multer = require('multer');
 const fs = require('fs');
 const livres = require('../models/livres');
 
-// image upload
+// l'upload d'image, renommage du fichier en concaténant le nom du champs + la date du jour + le nom du fichier
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, "./uploads")
@@ -38,6 +38,7 @@ router.post("/ajouter", upload, (req, res) => {
         }
     });
 });
+
 // Récupérer tous les livres
 router.get("/", (req, res) => {
     Livre.find().exec((err, livres) => {
@@ -52,6 +53,7 @@ router.get("/", (req, res) => {
     })
 });
 
+//Route pour ajouter un livre dans la bdd
 router.get("/ajouter", (req, res) => {
     res.render("ajouter_livres", { titre: "Ajouter un livre"})
 })
@@ -105,7 +107,8 @@ router.post("/modifier/:id", upload, (req, res) => {
             res.redirect('/');
         }
     })
-})
+});
+
 //Supprimer un livre
 router.get("/delete/:id", (req, res) => {
     let id = req.params.id;
