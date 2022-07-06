@@ -13,6 +13,17 @@
                             <input type="text" name="titre" value="<%= livre.titre %> " class="form-control form-control-lg" placeholder="Entrez le titre du livre" required />
                         </div>
                         <div class="mb-3">
+                            <label for="category">Collection</label>
+                            <select class="form-select form-control" name="category" aria-label="Category">
+                                <option selected>Sélectionner une Collection</option>
+                                <option value="Tintin">Tintin</option>
+                                <option value="Le club des 5">Le club des 5</option>
+                                <option value="Asterix">Asterix</option>
+                                <option value="Mortelle Adèle">Mortelle Adèle</option>
+                                <option value="Gaston">Gaston</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="image" class="form-label">Sélectionnez une image</label>
                             <input type="file" class="form-control form-control-lg" name="image" />
                             <img src="/<%= livre.image %>" width="100" alt="" class="img-thumbnail mt-1">

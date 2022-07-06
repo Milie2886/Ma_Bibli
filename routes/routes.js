@@ -24,6 +24,7 @@ router.post("/ajouter", upload, (req, res) => {
     const livre = new Livre({
         titre: req.body.titre,
         image: req.file.filename,
+        category: req.body.category,
     })
     livre.save((err)=> {
         if(err){
@@ -91,6 +92,7 @@ router.post("/modifier/:id", upload, (req, res) => {
     }
     Livre.findByIdAndUpdate(id, {
         titre: req.body.titre,
+        category: req.body.category,
         image: new_image,
     }, (err, result) => {
         if (err) {
