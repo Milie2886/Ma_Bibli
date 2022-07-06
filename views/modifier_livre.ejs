@@ -1,0 +1,30 @@
+<%- include('layout/header') %> 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h3 class="text-light">Modifier le livre (<%= livre.titre %> )</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/modifier/<%= livre._id %> " method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="titre">Titre</label>
+                            <input type="text" name="titre" value="<%= livre.titre %> " class="form-control form-control-lg" placeholder="Entrez le titre du livre" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Sélectionnez une image</label>
+                            <input type="file" class="form-control form-control-lg" name="image" />
+                            <img src="/<%= livre.image %>" width="100" alt="" class="img-thumbnail mt-1">
+                        </div>
+                        <input type="hidden" name="old_image" value="<%= livre.image %> ">
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Modifier le livre" class="btn btn-success btn-lg" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('layout/footer') %> 

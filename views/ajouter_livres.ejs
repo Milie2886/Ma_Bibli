@@ -1,0 +1,28 @@
+<%- include('layout/header') %> 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary">
+                    <h3 class="text-light">Ajouter un livre</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/ajouter" method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="titre">Titre</label>
+                            <input type="text" name="titre" class="form-control form-control-lg" placeholder="Entrez le titre du livre" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Sélectionnez une image</label>
+                            <input type="file" class="form-control form-control-lg" name="image" required />
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Ajouter un livre" class="btn btn-primary btn-lg" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('layout/footer') %> 
